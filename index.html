@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabeto (@cabeto_das_ruas) | O Partido Mais Fofo & Nerd do Mundo 🧸💖</title>
+  <meta name="description" content="Conheça o Cabeto (@cabeto_das_ruas): Programador safadinho, nerd fofo, gamer e super carinhoso. Avalie as fotos e mande um oii no WhatsApp (+55 74 9933-9123)!">
+  
+  <!-- Favicon com a Foto / Logo Oficial do Cabeto -->
+  <link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Comfortaa:wght@400;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Comfortaa', '"Outfit"', 'cursive'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            fofo: {
+              50: '#fff1f5',
+              100: '#ffe4ed',
+              200: '#fecddc',
+              300: '#fda4c0',
+              400: '#fb719b',
+              500: '#f43f76',
+              600: '#e11d57',
+              700: '#be1241',
+              pastelPink: '#ffb3c6',
+              pastelPurple: '#d8b4fe',
+              pastelYellow: '#fef08a',
+              pastelBlue: '#bae6fd',
+              cream: '#fffdfa',
+              bubble: 'rgba(255, 182, 193, 0.15)',
+            }
+          },
+          animation: {
+            'float': 'float 3.5s ease-in-out infinite',
+            'float-slow': 'float 5s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-soft': 'bounceSoft 2s infinite',
+            'wiggle': 'wiggle 1s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+              '50%': { opacity: 0.85, transform: 'scale(1.02)' },
+            },
+            bounceSoft: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Custom Scrollbar Fofinho */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #140b18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #f472b6, #c084fc);
+      border-radius: 999px;
+      border: 2px solid #140b18;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #fb7185;
+    }
+
+    .fofo-card {
+      background: rgba(30, 20, 38, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255, 182, 218, 0.18);
+      border-radius: 1.5rem;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .fofo-card:hover {
+      border-color: rgba(244, 114, 182, 0.5);
+      transform: translateY(-5px) scale(1.008);
+      box-shadow: 0 16px 35px -10px rgba(244, 63, 118, 0.35);
+    }
+
+    .gradient-cute {
+      background: linear-gradient(135deg, #f472b6 0%, #fb7185 40%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-gold {
+      background: linear-gradient(135deg, #fde047 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Trail cursor de corações */
+    .sparkle-trail {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      font-size: 14px;
+      animation: sparkleFall 1.2s ease-out forwards;
+    }
+
+    @keyframes sparkleFall {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + (var(--sx) * 20px)), calc(-50% + 40px)) scale(0.3) rotate(25deg);
+      }
+    }
+
+    /* Floating hearts */
+    .heart-float {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: cuteFlyUp 2s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+    }
+
+    @keyframes cuteFlyUp {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(calc(-50% + (var(--rand-x) * 50px)), calc(-50% - 90px)) scale(1.3) rotate(15deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + (var(--rand-x) * 90px)), calc(-50% - 220px)) scale(0.8) rotate(-20deg);
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#120817] text-rose-50 font-sans selection:bg-pink-400 selection:text-white relative overflow-x-hidden min-h-screen">
+
+  <!-- Background decorative fairy lights & glows -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-pink-500/15 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse-soft"></div>
+  <div class="fixed bottom-10 right-10 w-[600px] h-[600px] bg-purple-500/15 rounded-full blur-[170px] pointer-events-none -z-10"></div>
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-rose-500/10 rounded-full blur-[180px] pointer-events-none -z-10"></div>
+
+  <!-- Cute Notification Bar with Direct WhatsApp & Instagram -->
+  <div class="bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-md flex items-center justify-center gap-3 flex-wrap">
+    <span>✨ Procurando a namorada oficial do Cabeto! 🧸</span>
+    <div class="flex items-center gap-2">
+      <a href="https://wa.me/557499339123?text=Oii%20Cabeto!%20Achei%20seu%20site%20uma%20fofura%20e%20vim%20te%20dar%20um%20oii%20%F0%9F%A5%BA%F0%9F%92%96" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white text-pink-700 font-bold hover:bg-rose-100 hover:scale-105 transition-all shadow-sm">
+        <i class="fa-brands fa-whatsapp text-emerald-500 text-sm"></i>
+        <span>(74) 9933-9123</span>
+      </a>
+      <a href="https://instagram.com/cabeto_das_ruas" target="_blank" class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-pink-800/80 text-pink-100 border border-pink-300/40 text-xs font-bold hover:bg-pink-700 hover:scale-105 transition-all">
+        <i class="fa-brands fa-instagram text-pink-300"></i>
+        <span>@cabeto_das_ruas</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar com a Logo Oficial (Foto do Cabeto) -->
+  <header class="sticky top-0 z-50 fofo-card border-b border-pink-400/20 px-4 lg:px-8 py-3 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo com a Foto Oficial do Cabeto -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="relative">
+          <img src="./assets/logo.jpg" alt="Logo Cabeto" class="w-11 h-11 rounded-2xl object-cover object-top border-2 border-pink-400 shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all">
+          <span class="absolute -bottom-1 -right-1 text-xs">💖</span>
+        </div>
+        <div>
+          <span class="font-display font-bold text-xl tracking-wide text-white group-hover:text-pink-300 transition-colors">
+            Cabeto<span class="text-pink-400">.fofo</span>
+          </span>
+          <p class="text-[11px] text-pink-300 -mt-1 font-sans flex items-center gap-1">
+            <span>@cabeto_das_ruas</span>
+            <span class="text-xs">🌸</span>
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-pink-100">
+        <a href="#sobre" class="hover:text-pink-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-heart text-pink-400 text-xs"></i> Perfil
+        </a>
+        <a href="#qualidades" class="hover:text-pink-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-sparkles text-amber-300 text-xs"></i> Características
+        </a>
+        <a href="#galeria" class="hover:text-pink-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-camera text-purple-300 text-xs"></i> Galeria (4 Fotos)
+        </a>
+        <a href="#manual" class="hover:text-pink-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-book-heart text-rose-400 text-xs"></i> Manual de Cuidados
+        </a>
+        <a href="#comentarios" class="hover:text-pink-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-comments text-cyan-300 text-xs"></i> Mural Fofo
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <a href="https://instagram.com/cabeto_das_ruas" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pink-500/20 hover:bg-pink-500/30 border border-pink-400/40 text-pink-300 text-xs font-bold transition-all hover:scale-105">
+          <i class="fa-brands fa-instagram text-pink-400"></i>
+          <span>Insta</span>
+        </a>
+
+        <a href="https://wa.me/557499339123?text=Oii%20Cabeto!%20Achei%20seu%20site%20uma%20fofura%20e%20vim%20te%20dar%20um%20oii%20%F0%9F%A5%BA%F0%9F%92%96" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/40 text-emerald-300 text-xs font-bold transition-all hover:scale-105">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="#candidatura" class="inline-flex items-center justify-center p-0.5 overflow-hidden text-xs md:text-sm font-semibold rounded-full group bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 text-white shadow-lg shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all">
+          <span class="px-3.5 py-1.5 bg-[#170a1d] rounded-full group-hover:bg-opacity-0 transition-all flex items-center gap-1.5">
+            <span>Namorar</span>
+            <span class="text-sm">💌</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-24">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-6 pb-12 lg:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Column: Copy & Presentation -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Live Status Badge Fofinho -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full fofo-card border border-pink-400/30 text-pink-200 text-xs sm:text-sm font-mono shadow-inner shadow-pink-500/10">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 -ml-5"></span>
+            <span>🧸 CORAÇÃO DISPONÍVEL &bull; PROCURANDO MINHA PLAYER 2 💖</span>
+          </div>
+
+          <!-- Main Catchy Title -->
+          <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.15] text-white">
+            O programador mais <span class="gradient-cute">fofo &amp; charmoso</span> que você já viu.
+          </h1>
+
+          <!-- Dynamic Typing punchline -->
+          <div class="h-9 flex items-center justify-center lg:justify-start gap-2 font-mono text-sm sm:text-base">
+            <span class="text-pink-400 text-lg">🌸</span>
+            <span id="typing-text" class="border-r-2 border-pink-400 pr-1 text-pink-200"></span>
+          </div>
+
+          <!-- Bio Pitch -->
+          <p class="text-pink-100/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Cansada de caras que demoram 3 dias pra responder? Conheça o <strong>Cabeto</strong> (<a href="https://instagram.com/cabeto_das_ruas" target="_blank" class="text-pink-400 underline hover:text-pink-300">@cabeto_das_ruas</a>): 
+            ele resolve os bugs do seu celular, te faz cafuné nos cachos, joga seus games favoritos com você e ainda manda áudio fofo de bom dia! 🥺✨
+          </p>
+
+          <!-- As 5 Características Solicitadas (Em Pills Fofas) -->
+          <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start pt-1">
+            <span class="px-3.5 py-1.5 rounded-full bg-pink-500/15 border border-pink-400/30 text-pink-200 text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+              💻 <span>Programador Safadinho</span>
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-purple-500/15 border border-purple-400/30 text-purple-200 text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+              🤓 <span>Nerd Fofo &amp; Cult</span>
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/30 text-cyan-200 text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+              🎮 <span>Gosto de Games</span>
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-200 text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+              😏 <span>Malandrinho Sedutor</span>
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-200 text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+              🗣️ <span>Super Comunicativo</span>
+            </span>
+          </div>
+
+          <!-- CTAs Fofos -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="https://wa.me/557499339123?text=Oii%20Cabeto!%20Vi%20seu%20site%20e%20te%20achei%20uma%20gracinha!%20Vamos%20conversar%3F%20%F0%9F%A5%BA%F0%9F%92%96" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-center shadow-lg shadow-emerald-600/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>Mandar um "Oii" no WhatsApp</span>
+            </a>
+            
+            <a href="#galeria" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-400 hover:to-rose-400 text-white font-bold text-center shadow-lg shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+              <span>⭐ Avaliar as 4 Fotos Dele</span>
+              <span class="text-sm">🌸</span>
+            </a>
+          </div>
+
+          <!-- Card de Contato Direto do Cabeto -->
+          <div class="p-4 rounded-2xl fofo-card border border-pink-400/25 max-w-lg mx-auto lg:mx-0 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div>
+                <p class="text-xs text-pink-300 font-semibold uppercase tracking-wider">WhatsApp Oficial do Cabeto:</p>
+                <p class="text-base sm:text-lg font-black text-white font-mono">+55 (74) 9933-9123</p>
+              </div>
+            </div>
+            <a href="https://wa.me/557499339123?text=Oii%20Cabeto!%20%F0%9F%A5%BA%F0%9F%92%96" target="_blank" class="px-4 py-2 rounded-xl bg-pink-500 hover:bg-pink-400 text-white text-xs font-bold transition-all hover:scale-105 shadow-md flex items-center gap-1.5 shrink-0">
+              <span>Conversar</span>
+              <i class="fa-solid fa-paper-plane text-[10px]"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Visual Showcase Card com Carrossel das 4 Fotos -->
+        <div class="lg:col-span-5 relative">
+          
+          <!-- Cute Pastel Aura -->
+          <div class="absolute -inset-3 bg-gradient-to-r from-pink-400 via-rose-500 to-purple-400 rounded-3xl blur-2xl opacity-40 animate-pulse-soft -z-10"></div>
+
+          <!-- Main Profile Showcase -->
+          <div class="fofo-card rounded-3xl overflow-hidden border-2 border-pink-400/30 p-3.5 shadow-2xl relative">
+            
+            <div class="relative rounded-2xl overflow-hidden group aspect-[3/4] max-h-[500px] w-full bg-slate-900">
+              <img id="hero-img" src="./assets/foto4.jpg" alt="Cabeto Sorrindo com Energia e Rock" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+              
+              <!-- Floating stickers -->
+              <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+                <span id="hero-badge-1" class="px-3 py-1 rounded-full bg-pink-900/80 backdrop-blur-md text-pink-100 text-xs font-bold border border-pink-400/40 flex items-center gap-1.5 shadow-lg">
+                  🧸 <span>Pura Energia &amp; Rock</span>
+                </span>
+                <span id="hero-badge-2" class="px-3 py-0.5 rounded-full bg-purple-900/80 backdrop-blur-md text-purple-200 text-[11px] font-semibold border border-purple-400/30">
+                  ✨ @cabeto_das_ruas
+                </span>
+              </div>
+
+              <!-- Switch image button -->
+              <div class="absolute top-4 right-4 z-10">
+                <button onclick="toggleHeroPhoto()" class="px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-pink-200 text-xs font-semibold border border-pink-400/30 transition-all flex items-center gap-1.5 active:scale-90">
+                  <i class="fa-solid fa-camera-rotate text-pink-400"></i> Próxima Foto (<span id="hero-photo-indicator">4/4</span>)
+                </button>
+              </div>
+
+              <!-- Overlay gradient bottom -->
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#140b18] via-[#140b18]/80 to-transparent p-5 pt-20 flex flex-col justify-end">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h2 class="text-2xl font-black font-display text-white flex items-center gap-2">
+                      Cabeto
+                      <span class="text-pink-400 text-xl animate-wiggle" title="Fofura Autenticada">🧸</span>
+                    </h2>
+                    <p class="text-xs text-pink-200 flex items-center gap-1">
+                      <i class="fa-solid fa-location-dot text-rose-400"></i> Pronto pra te mimar e jogar com você
+                    </p>
+                  </div>
+                  
+                  <button onclick="triggerQuickHeart(event)" class="w-12 h-12 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 text-white flex items-center justify-center text-xl shadow-lg shadow-pink-500/40 hover:scale-110 active:scale-90 transition-all" title="Mandar Coraçãozinho">
+                    <i class="fa-solid fa-heart animate-bounce"></i>
+                  </button>
+                </div>
+
+                <!-- Instant Cute React Pills -->
+                <div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-pink-400/20">
+                  <button onclick="quickHeroReact('🥺 Que fofinho meu Deus!')" class="py-2 px-1.5 rounded-xl bg-pink-500/15 hover:bg-pink-500/30 border border-pink-400/20 text-xs font-semibold transition-all flex items-center justify-center gap-1">
+                    🥺 <span>Fofinho</span>
+                  </button>
+                  <button onclick="quickHeroReact('🔥 Gatinho demais!')" class="py-2 px-1.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/30 border border-rose-400/20 text-xs font-semibold transition-all flex items-center justify-center gap-1">
+                    🔥 <span>Gato</span>
+                  </button>
+                  <button onclick="quickHeroReact('💍 Já quero casar!')" class="py-2 px-1.5 rounded-xl bg-purple-500/15 hover:bg-purple-500/30 border border-purple-400/20 text-xs font-semibold transition-all flex items-center justify-center gap-1">
+                    💍 <span>Casava</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini cute quote -->
+            <div class="p-3 text-center">
+              <p class="text-xs text-pink-200/80 italic font-mono">
+                "Não sou teclado mecânico, mas faço o seu coração dar um clique suave 💖"
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS / OS 5 PILARES DO CABETO -->
+    <section id="qualidades" class="space-y-10">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="px-4 py-1.5 rounded-full bg-pink-500/15 border border-pink-400/30 text-pink-300 text-xs font-mono font-bold uppercase tracking-wider">
+          🌸 Especificações de Fábrica
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+          Por que o Cabeto é o <span class="gradient-cute">Par Perfeito</span>?
+        </h2>
+        <p class="text-pink-200/80 text-sm sm:text-base">
+          Conheça as 5 qualidades que fazem qualquer garota se apaixonar à primeira vista.
+        </p>
+      </div>
+
+      <!-- Grid dos 5 Pilares Fofos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1: Programador Safadinho -->
+        <div class="fofo-card p-6 relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-pink-500/20 border border-pink-400/30 flex items-center justify-center text-pink-300 text-2xl mb-4 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all">
+            💻
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider text-pink-400 font-bold">Skill #01</span>
+          <h3 class="font-display font-bold text-xl text-white mt-1 mb-2 flex items-center gap-2">
+            Programador Safadinho
+            <span class="text-lg">😏</span>
+          </h3>
+          <p class="text-pink-100/80 text-sm leading-relaxed mb-4">
+            Compila código em alto padrão e compila os melhores momentos com você. Faz commit diário de carinho, nunca dá tela azul no relacionamento e sabe fazer o coração acelerar.
+          </p>
+          <div class="bg-[#170c1c] rounded-xl p-3 font-mono text-xs text-pink-300 border border-pink-500/20">
+            <code>while (cabeto.com(voce)) {<br>&nbsp;&nbsp;amor.aumentar();<br>&nbsp;&nbsp;cafune.infinito();<br>}</code>
+          </div>
+        </div>
+
+        <!-- Card 2: Nerd -->
+        <div class="fofo-card p-6 relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300 text-2xl mb-4 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all">
+            🤓
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider text-purple-400 font-bold">Skill #02</span>
+          <h3 class="font-display font-bold text-xl text-white mt-1 mb-2 flex items-center gap-2">
+            Nerd com Estilo
+            <span class="text-lg">✨</span>
+          </h3>
+          <p class="text-pink-100/80 text-sm leading-relaxed mb-4">
+            Super inteligente e antenado em tudo. Se o seu PC travar, ele resolve na hora; se o seu dia for cansativo, ele te explica teorias fofas até você cair no sono tranquila.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-purple-300 font-mono">
+            <span>🧸</span> QI alto + Cachos macios + Coração bondoso
+          </div>
+        </div>
+
+        <!-- Card 3: Gosto de Games -->
+        <div class="fofo-card p-6 relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-cyan-300 text-2xl mb-4 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all">
+            🎮
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-bold">Skill #03</span>
+          <h3 class="font-display font-bold text-xl text-white mt-1 mb-2 flex items-center gap-2">
+            Gosto de Games
+            <span class="text-lg">🏆</span>
+          </h3>
+          <p class="text-pink-100/80 text-sm leading-relaxed mb-4">
+            O "Player 2" já tem dona! Se você curte jogos, ele te carrega nas partidas e divide todos os itens. Se não joga, ele pede comidinhas gostosas pra você saborear enquanto assiste.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-cyan-300 font-mono">
+            <span>🍕</span> Te protege no game e na vida real
+          </div>
+        </div>
+
+        <!-- Card 4: Malandrinho -->
+        <div class="fofo-card p-6 relative overflow-hidden group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-300 text-2xl mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all">
+            🕶️
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-bold">Skill #04</span>
+          <h3 class="font-display font-bold text-xl text-white mt-1 mb-2 flex items-center gap-2">
+            Malandrinho Charmoso
+            <span class="text-lg">🔥</span>
+          </h3>
+          <p class="text-pink-100/80 text-sm leading-relaxed mb-4">
+            Aquele toque de malandragem gostosa: olhar de canto de olho, presença marcante, estilo streetwear impecável e aquele sorrisinho que te desconcentra por completo.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-amber-300 font-mono">
+            <span>🍓</span> Charme na medida com respeito total
+          </div>
+        </div>
+
+        <!-- Card 5: Comunicativo -->
+        <div class="fofo-card p-6 relative overflow-hidden group md:col-span-2 lg:col-span-2">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 text-2xl mb-4 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+            🗣️
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-bold">Skill #05</span>
+          <h3 class="font-display font-bold text-xl text-white mt-1 mb-2 flex items-center gap-2">
+            Super Comunicativo &amp; Bom Ouvinte
+            <span class="text-lg">💬</span>
+          </h3>
+          <p class="text-pink-100/80 text-sm leading-relaxed mb-4">
+            Nada de respostas monossilábicas! O Cabeto escuta seus áudios de 5 minutos rindo, presta atenção em cada detalhe que você fala e nunca deixa a conversa morrer. Do papo cabeça às 3 da manhã até a fofoca mais boba do dia.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-emerald-300 font-mono pt-1">
+            <span class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-400/20">⚡ Responde na hora</span>
+            <span class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-400/20">🎧 Ama ouvir sua voz</span>
+            <span class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-400/20">💌 Não te deixa no vácuo</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- MANUAL DE CUIDADOS & MIMO DO CABETO -->
+    <section id="manual" class="fofo-card p-6 sm:p-10 border border-pink-400/30 relative overflow-hidden">
+      <div class="max-w-4xl mx-auto space-y-8">
+        
+        <div class="text-center space-y-2">
+          <span class="px-3.5 py-1.5 rounded-full bg-pink-500/20 text-pink-300 text-xs font-mono font-bold uppercase tracking-wider">
+            🧸 Guia Prático
+          </span>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
+            Manual de Cuidados do <span class="gradient-cute">Cabeto</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-pink-200/80">
+            Veja como é fácil cuidar desse exemplar raro da espécie humana:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Coluna 1: O que ele adora -->
+          <div class="space-y-4 p-5 rounded-2xl bg-[#170a1d]/80 border border-pink-400/20">
+            <h4 class="font-bold text-sm text-pink-300 flex items-center gap-2">
+              <span class="text-lg">🍓</span> O que faz o Cabeto Feliz:
+            </h4>
+            <ul class="space-y-2.5 text-xs text-pink-100/90 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5">🌸</span>
+                <span><strong>Mexer nos cachos dele:</strong> Ele finge costume, mas derrete por dentro quando recebe cafuné.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5">🎮</span>
+                <span><strong>Companhia nos games:</strong> Mesmo que você jogue mal, ter você no Discord ou do lado no sofá é vitória garantida.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5">💬</span>
+                <span><strong>Conversa sincera:</strong> Mandar foto do seu dia, contar fofocas e falar bobeiras com ele.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5">☕</span>
+                <span><strong>Comidinhas boas:</strong> Pizza, hambúrguer, açaí e lanchinhos enquanto ele programa.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Coluna 2: O que você ganha em troca -->
+          <div class="space-y-4 p-5 rounded-2xl bg-[#170a1d]/80 border border-purple-400/20">
+            <h4 class="font-bold text-sm text-purple-300 flex items-center gap-2">
+              <span class="text-lg">🎀</span> Benefícios de ser a Namorada Dele:
+            </h4>
+            <ul class="space-y-2.5 text-xs text-purple-100/90 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-purple-400 mt-0.5">🧸</span>
+                <span><strong>Abraço quentinho:</strong> Daqueles que tiram o peso do mundo dos seus ombros.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-400 mt-0.5">💻</span>
+                <span><strong>TI Pessoal 24/7:</strong> Computador travou? Celular esquentou? Ele cuida de tudo pra você.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-400 mt-0.5">💌</span>
+                <span><strong>Mimo na TPM:</strong> Paciência infinita, docinhos entregues na sua porta e compreensão.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-400 mt-0.5">✨</span>
+                <span><strong>Fidelidade inegociável:</strong> Um parceiro que te valoriza, te apoia e tem orgulho de estar com você.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALERIA INTERATIVA: AS 4 FOTOS COM AVALIAÇÃO & COMENTÁRIOS -->
+    <section id="galeria" class="space-y-10">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="px-4 py-1.5 rounded-full bg-pink-500/15 border border-pink-400/30 text-pink-300 text-xs font-mono font-bold uppercase tracking-wider">
+          📸 Galeria Completa &amp; Votação
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+          Avalie as 4 Fotos do <span class="gradient-cute">Cabeto</span>
+        </h2>
+        <p class="text-pink-200/80 text-sm sm:text-base">
+          Dê sua nota de 1 a 5 estrelas em cada uma, clique nas reações e deixe seu comentário sincero!
+        </p>
+      </div>
+
+      <!-- Container das 4 Fotos (Grid 2x2) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- PHOTO CARD 1 (Noite / Streetwear) -->
+        <div class="fofo-card overflow-hidden border border-pink-400/20 flex flex-col justify-between" id="photo-card-1">
+          <div>
+            <div class="relative group cursor-pointer overflow-hidden bg-slate-900 aspect-[4/5] sm:aspect-[3/4]" onclick="openLightbox('./assets/foto1.jpg', 'Foto 01: O Streetwear Noturno &amp; Charme de Malandrinho')">
+              <img src="./assets/foto1.jpg" alt="Cabeto Streetwear na noite" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors"></div>
+              <div class="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-pink-100 text-xs font-bold border border-pink-400/30">
+                  🌙 Noite &amp; Estilo
+                </span>
+                <span class="px-2.5 py-1 rounded-full bg-rose-600/80 backdrop-blur-md text-white text-xs font-semibold">
+                  Malandrinho Vibe
+                </span>
+              </div>
+              <div class="absolute bottom-4 right-4 z-10">
+                <span class="px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <i class="fa-solid fa-magnifying-glass-plus text-pink-400"></i> Ampliar Foto
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-5">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-xl text-white">#01 - Streetwear Noturno</h3>
+                  <div class="flex items-center gap-1.5 text-amber-300 text-sm font-bold font-mono">
+                    <span id="p1-avg-rating">5.0</span>
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="text-pink-300/70 text-xs font-normal">(<span id="p1-rating-count">42</span> votos)</span>
+                  </div>
+                </div>
+                <p class="text-xs text-pink-200/90 mt-1">
+                  Calça cargo clara, camisa preta e pose de quem vai te buscar de surpresa pra comer um lanche bem gostoso.
+                </p>
+              </div>
+
+              <!-- Star Rating -->
+              <div class="p-4 rounded-2xl bg-[#17091d]/80 border border-pink-400/15 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium text-pink-200">Sua Nota:</span>
+                  <span id="p1-your-vote" class="text-xs text-pink-400 font-semibold font-mono">Toque nas estrelas</span>
+                </div>
+                <div class="flex items-center gap-2" id="p1-star-container">
+                  <button type="button" onclick="ratePhoto(1, 1)" onmouseenter="previewStars(1, 1)" onmouseleave="resetPreviewStars(1)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(1, 2)" onmouseenter="previewStars(1, 2)" onmouseleave="resetPreviewStars(1)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(1, 3)" onmouseenter="previewStars(1, 3)" onmouseleave="resetPreviewStars(1)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(1, 4)" onmouseenter="previewStars(1, 4)" onmouseleave="resetPreviewStars(1)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(1, 5)" onmouseenter="previewStars(1, 5)" onmouseleave="resetPreviewStars(1)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                </div>
+              </div>
+
+              <!-- Reactions -->
+              <div>
+                <p class="text-xs font-semibold text-pink-300 uppercase tracking-wider mb-2">Reações Rápidas:</p>
+                <div class="grid grid-cols-4 gap-2">
+                  <button onclick="reactToPhoto(1, 'fire', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🔥</span><span class="text-[10px] text-pink-100 font-semibold">Gato</span><span id="p1-react-fire" class="text-[10px] text-pink-400 font-mono">158</span>
+                  </button>
+                  <button onclick="reactToPhoto(1, 'heart', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">😍</span><span class="text-[10px] text-pink-100 font-semibold">Amei</span><span id="p1-react-heart" class="text-[10px] text-pink-400 font-mono">112</span>
+                  </button>
+                  <button onclick="reactToPhoto(1, 'ring', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">💍</span><span class="text-[10px] text-pink-100 font-semibold">Caso</span><span id="p1-react-ring" class="text-[10px] text-pink-400 font-mono">79</span>
+                  </button>
+                  <button onclick="reactToPhoto(1, 'game', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🎮</span><span class="text-[10px] text-pink-100 font-semibold">Bora</span><span id="p1-react-game" class="text-[10px] text-pink-400 font-mono">61</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comments Feed -->
+          <div class="p-6 pt-0 border-t border-pink-400/15 space-y-4">
+            <div class="flex items-center justify-between pt-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-pink-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-comment-heart text-pink-400"></i> Comentários (<span id="p1-comment-count">3</span>)
+              </span>
+              <button onclick="focusCommentInput(1)" class="text-xs text-pink-400 hover:text-pink-300 font-semibold">+ Deixar Elogio</button>
+            </div>
+            <div id="p1-comments-list" class="space-y-2.5 max-h-52 overflow-y-auto pr-1"></div>
+            <form onsubmit="submitPhotoComment(event, 1)" class="pt-2">
+              <div class="flex gap-2">
+                <input id="p1-comment-name" type="text" placeholder="Seu nome / @insta" class="w-1/3 px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+                <input id="p1-comment-text" type="text" placeholder="Elogio fofo..." class="flex-1 px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+                <button type="submit" class="px-3.5 py-2 rounded-xl bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold active:scale-95 transition-all"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PHOTO CARD 2 (Estádio / Braços Abertos) -->
+        <div class="fofo-card overflow-hidden border border-purple-400/20 flex flex-col justify-between" id="photo-card-2">
+          <div>
+            <div class="relative group cursor-pointer overflow-hidden bg-slate-900 aspect-[4/5] sm:aspect-[3/4]" onclick="openLightbox('./assets/foto2.jpg', 'Foto 02: O Dono da Festa &amp; Abraço Quentinho')">
+              <img src="./assets/foto2.jpg" alt="Cabeto de braços abertos no estádio" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors"></div>
+              <div class="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-purple-100 text-xs font-bold border border-purple-400/30">
+                  🏟️ O Dono do Espetáculo
+                </span>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-600/80 backdrop-blur-md text-white text-xs font-semibold">
+                  Abraço Quentinho
+                </span>
+              </div>
+              <div class="absolute bottom-4 right-4 z-10">
+                <span class="px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <i class="fa-solid fa-magnifying-glass-plus text-purple-400"></i> Ampliar Foto
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-5">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-xl text-white">#02 - O Dono do Espetáculo</h3>
+                  <div class="flex items-center gap-1.5 text-amber-300 text-sm font-bold font-mono">
+                    <span id="p2-avg-rating">5.0</span>
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="text-purple-300/70 text-xs font-normal">(<span id="p2-rating-count">56</span> votos)</span>
+                  </div>
+                </div>
+                <p class="text-xs text-purple-200/90 mt-1">
+                  Óculos de nerd estiloso, cachos no ponto e braços abertos prontos pra te abraçar.
+                </p>
+              </div>
+
+              <!-- Star Rating -->
+              <div class="p-4 rounded-2xl bg-[#17091d]/80 border border-purple-400/15 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium text-purple-200">Sua Nota:</span>
+                  <span id="p2-your-vote" class="text-xs text-purple-400 font-semibold font-mono">Toque nas estrelas</span>
+                </div>
+                <div class="flex items-center gap-2" id="p2-star-container">
+                  <button type="button" onclick="ratePhoto(2, 1)" onmouseenter="previewStars(2, 1)" onmouseleave="resetPreviewStars(2)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(2, 2)" onmouseenter="previewStars(2, 2)" onmouseleave="resetPreviewStars(2)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(2, 3)" onmouseenter="previewStars(2, 3)" onmouseleave="resetPreviewStars(2)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(2, 4)" onmouseenter="previewStars(2, 4)" onmouseleave="resetPreviewStars(2)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(2, 5)" onmouseenter="previewStars(2, 5)" onmouseleave="resetPreviewStars(2)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                </div>
+              </div>
+
+              <!-- Reactions -->
+              <div>
+                <p class="text-xs font-semibold text-purple-300 uppercase tracking-wider mb-2">Reações Rápidas:</p>
+                <div class="grid grid-cols-4 gap-2">
+                  <button onclick="reactToPhoto(2, 'fire', event)" class="py-2 px-1 rounded-xl bg-purple-500/10 hover:bg-purple-500/25 border border-purple-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🔥</span><span class="text-[10px] text-purple-100 font-semibold">Lindo</span><span id="p2-react-fire" class="text-[10px] text-purple-400 font-mono">205</span>
+                  </button>
+                  <button onclick="reactToPhoto(2, 'heart', event)" class="py-2 px-1 rounded-xl bg-purple-500/10 hover:bg-purple-500/25 border border-purple-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">😍</span><span class="text-[10px] text-purple-100 font-semibold">Fofo</span><span id="p2-react-heart" class="text-[10px] text-purple-400 font-mono">148</span>
+                  </button>
+                  <button onclick="reactToPhoto(2, 'ring', event)" class="py-2 px-1 rounded-xl bg-purple-500/10 hover:bg-purple-500/25 border border-purple-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">💍</span><span class="text-[10px] text-purple-100 font-semibold">Aceito</span><span id="p2-react-ring" class="text-[10px] text-purple-400 font-mono">104</span>
+                  </button>
+                  <button onclick="reactToPhoto(2, 'game', event)" class="py-2 px-1 rounded-xl bg-purple-500/10 hover:bg-purple-500/25 border border-purple-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🫂</span><span class="text-[10px] text-purple-100 font-semibold">Abraço</span><span id="p2-react-game" class="text-[10px] text-purple-400 font-mono">132</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comments Feed -->
+          <div class="p-6 pt-0 border-t border-purple-400/15 space-y-4">
+            <div class="flex items-center justify-between pt-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-comment-heart text-purple-400"></i> Comentários (<span id="p2-comment-count">3</span>)
+              </span>
+              <button onclick="focusCommentInput(2)" class="text-xs text-purple-400 hover:text-purple-300 font-semibold">+ Deixar Elogio</button>
+            </div>
+            <div id="p2-comments-list" class="space-y-2.5 max-h-52 overflow-y-auto pr-1"></div>
+            <form onsubmit="submitPhotoComment(event, 2)" class="pt-2">
+              <div class="flex gap-2">
+                <input id="p2-comment-name" type="text" placeholder="Seu nome / @insta" class="w-1/3 px-3 py-2 rounded-xl bg-[#140b18] border border-purple-400/20 text-xs focus:border-purple-500 focus:outline-none text-white placeholder-purple-300/40" required>
+                <input id="p2-comment-text" type="text" placeholder="Elogio fofo..." class="flex-1 px-3 py-2 rounded-xl bg-[#140b18] border border-purple-400/20 text-xs focus:border-purple-500 focus:outline-none text-white placeholder-purple-300/40" required>
+                <button type="submit" class="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold active:scale-95 transition-all"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PHOTO CARD 3 (NOVA: O Craque da Mansueta / Camisa 12) -->
+        <div class="fofo-card overflow-hidden border border-amber-400/25 flex flex-col justify-between" id="photo-card-3">
+          <div>
+            <div class="relative group cursor-pointer overflow-hidden bg-slate-900 aspect-[4/5] sm:aspect-[3/4]" onclick="openLightbox('./assets/foto3.jpg', 'Foto 03: O Craque da Mansueta - Real Madrid Cal vs PSG do Piauí (@cabeto_das_ruas)')">
+              <img src="./assets/foto3.jpg" alt="Cabeto Craque do Jogo" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors"></div>
+              <div class="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-amber-200 text-xs font-bold border border-amber-400/30">
+                  ⚽ Camisa 12 Artilheiro
+                </span>
+                <span class="px-2.5 py-1 rounded-full bg-amber-600/80 backdrop-blur-md text-white text-xs font-semibold">
+                  Cabeto D'Mansueta
+                </span>
+              </div>
+              <div class="absolute bottom-4 right-4 z-10">
+                <span class="px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <i class="fa-solid fa-magnifying-glass-plus text-amber-400"></i> Ampliar Foto
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-5">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-xl text-white">#03 - O Craque d'Mansueta</h3>
+                  <div class="flex items-center gap-1.5 text-amber-300 text-sm font-bold font-mono">
+                    <span id="p3-avg-rating">5.0</span>
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="text-amber-300/70 text-xs font-normal">(<span id="p3-rating-count">64</span> votos)</span>
+                  </div>
+                </div>
+                <p class="text-xs text-amber-200/90 mt-1">
+                  Óculos de proteção futurista, camisa amarela da vitória e garra de quem vai marcar o gol da vida no seu coração.
+                </p>
+              </div>
+
+              <!-- Star Rating -->
+              <div class="p-4 rounded-2xl bg-[#17091d]/80 border border-amber-400/15 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium text-amber-200">Sua Nota:</span>
+                  <span id="p3-your-vote" class="text-xs text-amber-400 font-semibold font-mono">Toque nas estrelas</span>
+                </div>
+                <div class="flex items-center gap-2" id="p3-star-container">
+                  <button type="button" onclick="ratePhoto(3, 1)" onmouseenter="previewStars(3, 1)" onmouseleave="resetPreviewStars(3)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(3, 2)" onmouseenter="previewStars(3, 2)" onmouseleave="resetPreviewStars(3)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(3, 3)" onmouseenter="previewStars(3, 3)" onmouseleave="resetPreviewStars(3)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(3, 4)" onmouseenter="previewStars(3, 4)" onmouseleave="resetPreviewStars(3)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(3, 5)" onmouseenter="previewStars(3, 5)" onmouseleave="resetPreviewStars(3)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                </div>
+              </div>
+
+              <!-- Reactions -->
+              <div>
+                <p class="text-xs font-semibold text-amber-300 uppercase tracking-wider mb-2">Reações Rápidas:</p>
+                <div class="grid grid-cols-4 gap-2">
+                  <button onclick="reactToPhoto(3, 'fire', event)" class="py-2 px-1 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 border border-amber-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🔥</span><span class="text-[10px] text-amber-100 font-semibold">Craque</span><span id="p3-react-fire" class="text-[10px] text-amber-400 font-mono">184</span>
+                  </button>
+                  <button onclick="reactToPhoto(3, 'heart', event)" class="py-2 px-1 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 border border-amber-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">😍</span><span class="text-[10px] text-amber-100 font-semibold">Lindo</span><span id="p3-react-heart" class="text-[10px] text-amber-400 font-mono">137</span>
+                  </button>
+                  <button onclick="reactToPhoto(3, 'ring', event)" class="py-2 px-1 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 border border-amber-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">💍</span><span class="text-[10px] text-amber-100 font-semibold">Casava</span><span id="p3-react-ring" class="text-[10px] text-amber-400 font-mono">95</span>
+                  </button>
+                  <button onclick="reactToPhoto(3, 'game', event)" class="py-2 px-1 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 border border-amber-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🏆</span><span class="text-[10px] text-amber-100 font-semibold">Gol</span><span id="p3-react-game" class="text-[10px] text-amber-400 font-mono">119</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comments Feed -->
+          <div class="p-6 pt-0 border-t border-amber-400/15 space-y-4">
+            <div class="flex items-center justify-between pt-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-comment-heart text-amber-400"></i> Comentários (<span id="p3-comment-count">3</span>)
+              </span>
+              <button onclick="focusCommentInput(3)" class="text-xs text-amber-400 hover:text-amber-300 font-semibold">+ Deixar Elogio</button>
+            </div>
+            <div id="p3-comments-list" class="space-y-2.5 max-h-52 overflow-y-auto pr-1"></div>
+            <form onsubmit="submitPhotoComment(event, 3)" class="pt-2">
+              <div class="flex gap-2">
+                <input id="p3-comment-name" type="text" placeholder="Seu nome / @insta" class="w-1/3 px-3 py-2 rounded-xl bg-[#140b18] border border-amber-400/20 text-xs focus:border-amber-500 focus:outline-none text-white placeholder-amber-300/40" required>
+                <input id="p3-comment-text" type="text" placeholder="Elogio fofo..." class="flex-1 px-3 py-2 rounded-xl bg-[#140b18] border border-amber-400/20 text-xs focus:border-amber-500 focus:outline-none text-white placeholder-amber-300/40" required>
+                <button type="submit" class="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold active:scale-95 transition-all"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PHOTO CARD 4 (NOVA: Pura Energia, Rock & Sorriso Tecnológico) -->
+        <div class="fofo-card overflow-hidden border border-pink-400/30 flex flex-col justify-between" id="photo-card-4">
+          <div>
+            <div class="relative group cursor-pointer overflow-hidden bg-slate-900 aspect-[4/5] sm:aspect-[3/4]" onclick="openLightbox('./assets/foto4.jpg', 'Foto 04: Pura Energia, Alegria &amp; Rock\'n\'Roll - O Dono do Meu Coração')">
+              <img src="./assets/foto4.jpg" alt="Cabeto Sorrindo com Sinal de Rock" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500">
+              <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors"></div>
+              <div class="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-pink-200 text-xs font-bold border border-pink-400/30">
+                  🤟 Rock &amp; Amor
+                </span>
+                <span class="px-2.5 py-1 rounded-full bg-pink-600/80 backdrop-blur-md text-white text-xs font-semibold">
+                  Carisma Nível 1000
+                </span>
+              </div>
+              <div class="absolute bottom-4 right-4 z-10">
+                <span class="px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <i class="fa-solid fa-magnifying-glass-plus text-pink-400"></i> Ampliar Foto
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-5">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display font-bold text-xl text-white">#04 - Pura Energia &amp; Rock</h3>
+                  <div class="flex items-center gap-1.5 text-amber-300 text-sm font-bold font-mono">
+                    <span id="p4-avg-rating">5.0</span>
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="text-pink-300/70 text-xs font-normal">(<span id="p4-rating-count">78</span> votos)</span>
+                  </div>
+                </div>
+                <p class="text-xs text-pink-200/90 mt-1">
+                  A foto favorita do público! Camisa salmão, óculos charmoso, linguinha de fora e sinal de rock com um sorriso contagiante.
+                </p>
+              </div>
+
+              <!-- Star Rating -->
+              <div class="p-4 rounded-2xl bg-[#17091d]/80 border border-pink-400/15 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-medium text-pink-200">Sua Nota:</span>
+                  <span id="p4-your-vote" class="text-xs text-pink-400 font-semibold font-mono">Toque nas estrelas</span>
+                </div>
+                <div class="flex items-center gap-2" id="p4-star-container">
+                  <button type="button" onclick="ratePhoto(4, 1)" onmouseenter="previewStars(4, 1)" onmouseleave="resetPreviewStars(4)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(4, 2)" onmouseenter="previewStars(4, 2)" onmouseleave="resetPreviewStars(4)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(4, 3)" onmouseenter="previewStars(4, 3)" onmouseleave="resetPreviewStars(4)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(4, 4)" onmouseenter="previewStars(4, 4)" onmouseleave="resetPreviewStars(4)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                  <button type="button" onclick="ratePhoto(4, 5)" onmouseenter="previewStars(4, 5)" onmouseleave="resetPreviewStars(4)" class="text-2xl text-slate-600 hover:text-amber-400 transition-colors focus:outline-none star-btn"><i class="fa-solid fa-star"></i></button>
+                </div>
+              </div>
+
+              <!-- Reactions -->
+              <div>
+                <p class="text-xs font-semibold text-pink-300 uppercase tracking-wider mb-2">Reações Rápidas:</p>
+                <div class="grid grid-cols-4 gap-2">
+                  <button onclick="reactToPhoto(4, 'fire', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🔥</span><span class="text-[10px] text-pink-100 font-semibold">Gato</span><span id="p4-react-fire" class="text-[10px] text-pink-400 font-mono">245</span>
+                  </button>
+                  <button onclick="reactToPhoto(4, 'heart', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">😍</span><span class="text-[10px] text-pink-100 font-semibold">Amei</span><span id="p4-react-heart" class="text-[10px] text-pink-400 font-mono">198</span>
+                  </button>
+                  <button onclick="reactToPhoto(4, 'ring', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">💍</span><span class="text-[10px] text-pink-100 font-semibold">Caso</span><span id="p4-react-ring" class="text-[10px] text-pink-400 font-mono">142</span>
+                  </button>
+                  <button onclick="reactToPhoto(4, 'game', event)" class="py-2 px-1 rounded-xl bg-pink-500/10 hover:bg-pink-500/25 border border-pink-400/20 transition-all text-center flex flex-col items-center gap-0.5 active:scale-90">
+                    <span class="text-lg">🤟</span><span class="text-[10px] text-pink-100 font-semibold">Demais</span><span id="p4-react-game" class="text-[10px] text-pink-400 font-mono">167</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comments Feed -->
+          <div class="p-6 pt-0 border-t border-pink-400/15 space-y-4">
+            <div class="flex items-center justify-between pt-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-pink-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-comment-heart text-pink-400"></i> Comentários (<span id="p4-comment-count">3</span>)
+              </span>
+              <button onclick="focusCommentInput(4)" class="text-xs text-pink-400 hover:text-pink-300 font-semibold">+ Deixar Elogio</button>
+            </div>
+            <div id="p4-comments-list" class="space-y-2.5 max-h-52 overflow-y-auto pr-1"></div>
+            <form onsubmit="submitPhotoComment(event, 4)" class="pt-2">
+              <div class="flex gap-2">
+                <input id="p4-comment-name" type="text" placeholder="Seu nome / @insta" class="w-1/3 px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+                <input id="p4-comment-text" type="text" placeholder="Elogio fofo..." class="flex-1 px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+                <button type="submit" class="px-3.5 py-2 rounded-xl bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold active:scale-95 transition-all"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTE DE COMPATIBILIDADE / MATCH QUIZ -->
+    <section id="quiz" class="fofo-card rounded-3xl p-6 sm:p-10 border border-pink-400/30 relative overflow-hidden">
+      <div class="max-w-2xl mx-auto space-y-6 text-center">
+        <span class="px-3.5 py-1.5 rounded-full bg-pink-500/20 text-pink-300 text-xs font-mono font-bold uppercase tracking-wider">
+          🔮 Teste do Amor
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+          Qual sua chance de <span class="gradient-cute">namorar o Cabeto</span>?
+        </h2>
+        <p class="text-pink-200/80 text-sm">
+          Responda a 3 perguntas fofas e nosso algoritmo calculará a química entre vocês.
+        </p>
+
+        <!-- Quiz Container -->
+        <div id="quiz-box" class="space-y-6 text-left pt-3">
+          <!-- Question 1 -->
+          <div class="space-y-3">
+            <p class="text-sm font-semibold text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-pink-500/25 text-pink-300 flex items-center justify-center text-xs font-bold">1</span>
+              Sexta-feira à noite, qual o date perfeito?
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <button type="button" onclick="selectQuizOption(1, 0, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-1">
+                🍕 Pizza + Série deitada no peito dele
+              </button>
+              <button type="button" onclick="selectQuizOption(1, 1, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-1">
+                🎮 Noite de videogame e zoação
+              </button>
+              <button type="button" onclick="selectQuizOption(1, 2, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-1">
+                🍹 Barzinho e beijos no final da noite
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="space-y-3">
+            <p class="text-sm font-semibold text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-pink-500/25 text-pink-300 flex items-center justify-center text-xs font-bold">2</span>
+              Ele é programador e às vezes fica concentrado no código. Você:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <button type="button" onclick="selectQuizOption(2, 0, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-2">
+                🥺 Dou um beijinho na bochecha e levo café
+              </button>
+              <button type="button" onclick="selectQuizOption(2, 1, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-2">
+                😏 Sento no colo dele pra desconcentrar
+              </button>
+              <button type="button" onclick="selectQuizOption(2, 2, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-2">
+                💻 Peço pra ele me ensinar a programar
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="space-y-3">
+            <p class="text-sm font-semibold text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-pink-500/25 text-pink-300 flex items-center justify-center text-xs font-bold">3</span>
+              O que você mais valoriza no Cabeto?
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <button type="button" onclick="selectQuizOption(3, 0, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-3">
+                💖 Carinho, atenção e fidelidade
+              </button>
+              <button type="button" onclick="selectQuizOption(3, 1, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-3">
+                🧸 Aquele jeitinho nerd fofo com pegada
+              </button>
+              <button type="button" onclick="selectQuizOption(3, 2, this)" class="p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 hover:border-pink-500 text-pink-100 transition-all text-left quiz-btn-3">
+                ✨ Absolutamente tudo nele
+              </button>
+            </div>
+          </div>
+
+          <div class="text-center pt-2">
+            <button onclick="calculateMatch()" class="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 hover:scale-105 text-white font-bold shadow-lg shadow-pink-500/30 active:scale-95 transition-all inline-flex items-center gap-2">
+              <span>Calcular Nosso Match</span>
+              <span class="text-lg">💖</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Box -->
+        <div id="quiz-result" class="hidden p-6 rounded-3xl bg-[#170a1d] border-2 border-pink-400/40 text-center space-y-4">
+          <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-pink-500/20 text-pink-300 text-4xl animate-bounce">
+            🧸
+          </div>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
+            Compatibilidade: <span class="gradient-cute font-black text-4xl" id="match-percent">99.9%</span>
+          </h3>
+          <p class="text-pink-100/90 text-sm max-w-md mx-auto" id="match-message">
+            Alerta de Destino: Vocês foram feitos um para o outro! O Cabeto já está sorrindo de orelha a orelha. Mande uma mensagem agora no WhatsApp dele!
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="https://wa.me/557499339123?text=Oii%20Cabeto!%20Fiz%20o%20quiz%20do%20seu%20site%20e%20deu%2099.9%25%20de%20match!%20%F0%9F%A5%BA%F0%9F%92%96%20Quando%20a%20gente%20se%20v%C3%AA%3F" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-all hover:scale-105">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Avisar ele no WhatsApp</span>
+            </a>
+            <a href="#candidatura" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-pink-600 hover:bg-pink-500 text-white font-bold text-sm shadow-md transition-all hover:scale-105">
+              <span>Preencher Candidatura</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MURAL DAS PRETENDENTES / DEPOIMENTOS & CANTADAS GERAIS -->
+    <section id="comentarios" class="space-y-10">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="px-4 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider">
+          💌 Recados do Coração
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+          Mural das <span class="gradient-cute">Pretendentes</span>
+        </h2>
+        <p class="text-pink-200/80 text-sm sm:text-base">
+          Veja o que as admiradoras estão comentando e deixe seu carinho registrado!
+        </p>
+      </div>
+
+      <!-- Feed Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="general-feed">
+        <div class="fofo-card p-5 border border-pink-400/20 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-400 to-rose-400 flex items-center justify-center font-bold text-white text-sm">
+                L
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">Larissa M.</h4>
+                <p class="text-[11px] text-pink-400 font-mono">@lari.devs</p>
+              </div>
+            </div>
+            <div class="flex text-amber-300 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="text-xs text-pink-100/90 leading-relaxed italic">
+            "Meninas, saiam da fila! A foto 4 com a linguinha de fora e sinal de rock me ganhou na hora 🥺 Já mandei mensagem no Whats dele!"
+          </p>
+          <div class="flex items-center justify-between text-[11px] text-pink-300/60 border-t border-pink-400/15 pt-2">
+            <span>Interesse: Casamento 💍</span>
+            <span>Há 1 hora</span>
+          </div>
+        </div>
+
+        <div class="fofo-card p-5 border border-purple-400/20 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-400 to-pink-400 flex items-center justify-center font-bold text-white text-sm">
+                B
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">Beatriz F.</h4>
+                <p class="text-[11px] text-purple-300 font-mono">@biia.gamer</p>
+              </div>
+            </div>
+            <div class="flex text-amber-300 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="text-xs text-pink-100/90 leading-relaxed italic">
+            "O cara é artilheiro no futebol, manja de TI e é gamer? Essa foto 3 dele de camisa 12 tá uma lenda! Quero ser a torcedora número 1 dele."
+          </p>
+          <div class="flex items-center justify-between text-[11px] text-pink-300/60 border-t border-pink-400/15 pt-2">
+            <span>Interesse: Date &amp; Game 🎮</span>
+            <span>Há 3 horas</span>
+          </div>
+        </div>
+
+        <div class="fofo-card p-5 border border-pink-400/20 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-400 to-amber-400 flex items-center justify-center font-bold text-white text-sm">
+                C
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-white">Camila Rocha</h4>
+                <p class="text-[11px] text-pink-300 font-mono">@camilinha.r</p>
+              </div>
+            </div>
+            <div class="flex text-amber-300 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="text-xs text-pink-100/90 leading-relaxed italic">
+            "Esse site ficou a coisa mais fofa do mundo! As fotos mostram que ele é 100% verdadeiro e carismático. Já preenchi a candidatura!"
+          </p>
+          <div class="flex items-center justify-between text-[11px] text-pink-300/60 border-t border-pink-400/15 pt-2">
+            <span>Interesse: Namoro Sério 💖</span>
+            <span>Ontem</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Add Testimonial Box -->
+      <div class="fofo-card p-6 border border-pink-400/25 max-w-xl mx-auto space-y-4">
+        <h4 class="font-display font-bold text-lg text-white flex items-center gap-2">
+          <span>💌</span> Deixar seu Recado no Mural
+        </h4>
+        <form onsubmit="submitPublicFeedMessage(event)" class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-pink-200 mb-1">Seu Nome:</label>
+              <input id="feed-name" type="text" placeholder="Ex: Júlia Santos" class="w-full px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+            </div>
+            <div>
+              <label class="block text-xs text-pink-200 mb-1">Seu @ (Instagram):</label>
+              <input id="feed-handle" type="text" placeholder="@seuuser" class="w-full px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-pink-200 mb-1">Nota pro Cabeto:</label>
+              <select id="feed-rating" class="w-full px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white">
+                <option value="5">⭐⭐⭐⭐⭐ (10/10 Perfeito)</option>
+                <option value="5">⭐⭐⭐⭐⭐ (Fofo demais)</option>
+                <option value="5">⭐⭐⭐⭐⭐ (Casava agora)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs text-pink-200 mb-1">Nível de Interesse:</label>
+              <select id="feed-interest" class="w-full px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white">
+                <option value="Namoro Sério 💖">Namoro Sério 💖</option>
+                <option value="Casamento & Cafuné 🧸">Casamento &amp; Cafuné 🧸</option>
+                <option value="Date com Pizza 🍕">Date com Pizza 🍕</option>
+                <option value="Duo nos Games 🎮">Duo nos Games 🎮</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-pink-200 mb-1">Sua Mensagem / Elogio Fofo:</label>
+            <textarea id="feed-message" rows="2" placeholder="Escreva algo carinhoso que vai fazer ele sorrir..." class="w-full px-3 py-2 rounded-xl bg-[#140b18] border border-pink-400/20 text-xs focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required></textarea>
+          </div>
+          <button type="submit" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:scale-[1.01] text-white font-bold text-xs shadow-md shadow-pink-500/20 active:scale-95 transition-all flex items-center justify-center gap-2">
+            <span>Publicar Recado</span>
+            <span>💖</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CANDIDATURA DE NAMORADA -->
+    <section id="candidatura" class="fofo-card rounded-3xl p-6 sm:p-10 border-2 border-pink-400/30 relative overflow-hidden">
+      <div class="max-w-3xl mx-auto space-y-8">
+        
+        <div class="text-center space-y-3">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/20 text-pink-300 text-xs font-mono font-bold uppercase">
+            <span>🧸</span> Inscrição Oficial de Namorada
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+            Formulário de Candidatura para <span class="gradient-cute">Namorada do Cabeto</span>
+          </h2>
+          <p class="text-pink-100/90 text-sm sm:text-base">
+            Preencha seus dados com carinho. Ao enviar, você poderá avisá-lo direto no WhatsApp (+55 74 9933-9123)!
+          </p>
+        </div>
+
+        <form id="girlfriend-form" onsubmit="submitGirlfriendForm(event)" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-pink-200 mb-1">Seu Nome Completo:</label>
+              <div class="relative">
+                <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-pink-400 text-xs"></i>
+                <input id="gf-name" type="text" placeholder="Como ele deve te chamar?" class="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-[#140b18] border border-pink-400/20 text-sm focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-pink-200 mb-1">Seu Instagram (@):</label>
+              <div class="relative">
+                <i class="fa-brands fa-instagram absolute left-3.5 top-3.5 text-pink-400 text-xs"></i>
+                <input id="gf-insta" type="text" placeholder="@seuinstagram" class="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-[#140b18] border border-pink-400/20 text-sm focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-pink-200 mb-1">Seu WhatsApp (para ele te mandar mensagem):</label>
+              <div class="relative">
+                <i class="fa-brands fa-whatsapp absolute left-3.5 top-3.5 text-emerald-400 text-xs"></i>
+                <input id="gf-phone" type="tel" placeholder="(DD) 99999-9999" class="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-[#140b18] border border-pink-400/20 text-sm focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-pink-200 mb-1">Qual o seu Date dos Sonhos com o Cabeto?</label>
+              <select id="gf-date-type" class="w-full px-3 py-2.5 rounded-2xl bg-[#140b18] border border-pink-400/20 text-sm focus:border-pink-500 focus:outline-none text-white">
+                <option value="Pizza na cama maratonando séries e comendo besteira">Pizza na cama maratonando séries e comendo besteira 🍕</option>
+                <option value="Hambúrguer artesanal + Conversa boa até tarde">Hambúrguer artesanal + Conversa boa até tarde 🍔</option>
+                <option value="Jogar videogame juntinhos comendo chocolate">Jogar videogame juntinhos comendo chocolate 🎮</option>
+                <option value="Passeio na praça, tomar açaí e rir juntos">Passeio na praça, tomar açaí e rir juntos 🍓</option>
+                <option value="O que ele escolher, eu topo de coração!">O que ele escolher, eu topo de coração! 💖</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-pink-200 mb-1">Você aceita ser a Player 2 dele nos jogos?</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <label class="flex items-center gap-2 p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 cursor-pointer hover:border-pink-500 text-xs transition-colors">
+                <input type="radio" name="player2" value="Sim, sou fera nos jogos!" checked class="text-pink-500 focus:ring-pink-500">
+                <span>🎮 Sim, sou gamer nata!</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 cursor-pointer hover:border-pink-500 text-xs transition-colors">
+                <input type="radio" name="player2" value="Não jogo muito, mas quero aprender com ele" class="text-pink-500 focus:ring-pink-500">
+                <span>🕹️ Não jogo, mas quero aprender com ele</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 rounded-2xl bg-[#140b18] border border-pink-400/20 cursor-pointer hover:border-pink-500 text-xs transition-colors">
+                <input type="radio" name="player2" value="Fico do lado fazendo cafuné e lanchinho" class="text-pink-500 focus:ring-pink-500">
+                <span>🍿 Fico fazendo cafuné e lanchinho</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Gerador de Cantadas Rápidas e Input -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5 flex-wrap gap-2">
+              <label class="block text-xs font-semibold text-pink-200">Sua Cantada ou Mensagem Direta pro Cabeto:</label>
+              <button type="button" onclick="gerarCantadaAleatoria()" class="text-xs text-pink-400 hover:text-pink-300 font-bold flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/15 border border-pink-400/30 transition-all hover:scale-105">
+                <span>🎲 Sortear Cantada Fofa de TI</span>
+              </button>
+            </div>
+            <textarea id="gf-cantada" rows="3" placeholder="Escreva algo fofo e carinhoso... Ou clique no botão acima para sortear uma cantada pronta!" class="w-full px-4 py-3 rounded-2xl bg-[#140b18] border border-pink-400/20 text-sm focus:border-pink-500 focus:outline-none text-white placeholder-pink-300/40" required></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2 text-center space-y-3">
+            <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 hover:scale-105 active:scale-95 text-white font-extrabold text-base shadow-xl shadow-pink-500/30 transition-all inline-flex items-center justify-center gap-3">
+              <span>💌 Enviar Minha Candidatura Oficial</span>
+              <span>🧸</span>
+            </button>
+            <p class="text-xs text-pink-300/70">
+              🔒 Seus dados serão entregues com carinho para o WhatsApp do Cabeto (+55 74 9933-9123).
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-pink-400/20 pt-10 pb-16 text-center space-y-4">
+      <div class="flex items-center justify-center gap-3">
+        <img src="./assets/logo.jpg" alt="Logo Cabeto" class="w-8 h-8 rounded-xl object-cover object-top border border-pink-400">
+        <span class="font-display font-bold text-xl text-white">CABETO.FOFO</span>
+        <span class="text-xl">💖</span>
+      </div>
+      <p class="text-xs text-pink-200/80 max-w-md mx-auto">
+        Site desenvolvido com muito amor, carinho e código limpo para desencalhar o programador mais fofo do Brasil!
+      </p>
+      
+      <!-- WhatsApp & Instagram Direct Contact Badges in Footer -->
+      <div class="flex items-center justify-center gap-3 flex-wrap">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-xs font-mono">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>WhatsApp: <strong>+55 (74) 9933-9123</strong></span>
+        </div>
+        <a href="https://instagram.com/cabeto_das_ruas" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-400/30 text-pink-300 text-xs font-mono hover:bg-pink-500/20 transition-all">
+          <i class="fa-brands fa-instagram text-sm"></i>
+          <span>Instagram: <strong>@cabeto_das_ruas</strong></span>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 text-xs text-pink-300/60 font-mono pt-2">
+        <span>© 2026 Operação Desencalha Cabeto</span>
+        <span>&bull;</span>
+        <span>100% Cuidado &amp; Amor</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+    <div class="relative max-w-4xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white hover:text-pink-400 text-2xl font-bold p-2 transition-colors">
+        <i class="fa-solid fa-xmark"></i> Fechar
+      </button>
+      <img id="lightbox-img" src="" alt="" class="max-h-[80vh] w-auto rounded-3xl shadow-2xl border-2 border-pink-400/40 object-contain">
+      <p id="lightbox-caption" class="text-pink-100 text-sm font-medium mt-4 text-center"></p>
+    </div>
+  </div>
+
+  <!-- CANDIDATURA SUCCESS MODAL -->
+  <div id="success-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="fofo-card max-w-md w-full rounded-3xl p-8 border-2 border-pink-400/40 text-center space-y-5 shadow-2xl">
+      <div class="w-20 h-20 rounded-full bg-pink-500/20 text-pink-300 text-4xl flex items-center justify-center mx-auto animate-bounce">
+        🧸
+      </div>
+      <h3 class="font-display font-bold text-2xl text-white">
+        Candidatura Enviada! 🎉
+      </h3>
+      <p class="text-pink-100/90 text-sm leading-relaxed" id="success-desc">
+        Parabéns! Sua proposta foi gravada no coração do Cabeto. Agora avise ele diretamente no WhatsApp para começarem a conversar!
+      </p>
+      <div class="pt-2 flex flex-col gap-3">
+        <button id="whatsapp-share-btn" onclick="sendViaWhatsapp()" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all hover:scale-105">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>Avisar o Cabeto no Whats (+55 74 9933-9123)</span>
+        </button>
+        <button onclick="closeSuccessModal()" class="w-full py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-pink-200 text-xs font-semibold transition-all">
+          Fechar Janela
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK MATCH BUTTON -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <button onclick="triggerFloatingHearts(event)" class="w-12 h-12 rounded-full bg-[#1e1024]/90 border border-pink-400/40 text-pink-400 hover:text-white hover:bg-pink-600 flex items-center justify-center text-lg shadow-xl shadow-pink-950/50 hover:scale-110 active:scale-90 transition-all" title="Jogar Corações na Tela">
+      <i class="fa-solid fa-heart animate-pulse"></i>
+    </button>
+    <a href="https://wa.me/557499339123?text=Oii%20Cabeto!%20%F0%9F%A5%BA%F0%9F%92%96%20Amei%20seu%20site%20e%20vim%20falar%20com%20voc%C3%AA!" target="_blank" class="px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2.5 shadow-2xl shadow-emerald-600/50 hover:scale-105 active:scale-95 transition-all">
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      <span>Conversar no Whats</span>
+    </a>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // WhatsApp do Cabeto
+    const CABETO_WHATSAPP = "557499339123";
+
+    // Audio synthesizer fofinho via Web Audio API
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playBeep(type = 'heart') {
+      try {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        if (type === 'heart') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+          osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.15); // A5
+          gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.22);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.22);
+        } else if (type === 'rating') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(659.25, audioCtx.currentTime); // E5
+          osc.frequency.exponentialRampToValueAtTime(1046.50, audioCtx.currentTime + 0.18); // C6
+          gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.25);
+        } else if (type === 'celebrate') {
+          [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach((freq, i) => {
+            const o = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            o.type = 'sine';
+            o.connect(g);
+            g.connect(audioCtx.destination);
+            o.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.07);
+            g.gain.setValueAtTime(0.08, audioCtx.currentTime + i * 0.07);
+            g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.45);
+            o.start(audioCtx.currentTime + i * 0.07);
+            o.stop(audioCtx.currentTime + 0.45);
+          });
+        }
+      } catch (e) {}
+    }
+
+    // Cursor Sparkle Trail (Fofinho)
+    let lastTrailTime = 0;
+    window.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      if (now - lastTrailTime > 60) {
+        lastTrailTime = now;
+        const trail = document.createElement('div');
+        trail.className = 'sparkle-trail';
+        const sparkles = ['✨', '💖', '🌸', '🧸', '🍓'];
+        trail.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+        trail.style.left = `${e.clientX}px`;
+        trail.style.top = `${e.clientY}px`;
+        trail.style.setProperty('--sx', (Math.random() * 2 - 1).toFixed(2));
+        document.body.appendChild(trail);
+        setTimeout(() => trail.remove(), 1100);
+      }
+    });
+
+    // Hero typing effect fofinho
+    const typingPhrases = [
+      "Programador safadinho que compila carinho 💻💖",
+      "Nerd fofo que resolve seus problemas no PC 🤓✨",
+      "Gamer companheiro: o Player 2 é todinho seu 🎮🧸",
+      "Malandrinho charmoso com o coração quentinho 😏🌸",
+      "Craque d'Mansueta: @cabeto_das_ruas ⚽✨",
+      "Super comunicativo: WhatsApp +55 74 9933-9123 💬🥰"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeEffect() {
+      const current = typingPhrases[phraseIndex];
+      if (isDeleting) {
+        typingElement.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 25 : 55;
+      if (!isDeleting && charIndex === current.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+        speed = 350;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+    typeEffect();
+
+    // Hero photo switcher (rotates 1, 2, 3, 4)
+    const heroPhotos = [
+      { src: './assets/foto4.jpg', b1: '🤟 Pura Energia & Rock', b2: '✨ Sorriso que apaixona' },
+      { src: './assets/foto1.jpg', b1: '🌙 Noite & Estilo', b2: 'Streetwear 10/10' },
+      { src: './assets/foto2.jpg', b1: '🏟️ Dono do Espetáculo', b2: 'Abraço Quentinho' },
+      { src: './assets/foto3.jpg', b1: '⚽ Craque d\'Mansueta', b2: 'Artilheiro Camisa 12' }
+    ];
+    let heroIndex = 0;
+
+    function toggleHeroPhoto() {
+      heroIndex = (heroIndex + 1) % heroPhotos.length;
+      const cur = heroPhotos[heroIndex];
+      document.getElementById('hero-img').src = cur.src;
+      document.getElementById('hero-badge-1').innerHTML = cur.b1;
+      document.getElementById('hero-badge-2').innerHTML = cur.b2;
+      document.getElementById('hero-photo-indicator').textContent = `${heroIndex + 1}/4`;
+      playBeep('rating');
+    }
+
+    // Quick react on Hero
+    function quickHeroReact(msg) {
+      playBeep('heart');
+      confetti({
+        particleCount: 60,
+        spread: 60,
+        origin: { y: 0.7 }
+      });
+      alert(`Você reagiu: "${msg}". O Cabeto já ficou todo bobo! 🥺💖`);
+    }
+
+    // Floating heart generator
+    function triggerQuickHeart(e) {
+      playBeep('heart');
+      spawnHeartAt(e.clientX, e.clientY);
+    }
+
+    function triggerFloatingHearts(e) {
+      playBeep('heart');
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          spawnHeartAt(e.clientX || (window.innerWidth - 80), e.clientY || (window.innerHeight - 80));
+        }, i * 75);
+      }
+    }
+
+    function spawnHeartAt(x, y) {
+      const heart = document.createElement('div');
+      heart.className = 'heart-float';
+      const emojis = ['💖', '🧸', '🌸', '🍓', '✨', '🥺', '💍', '🥰', '🤟'];
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.fontSize = `${Math.floor(Math.random() * 18) + 24}px`;
+      heart.style.setProperty('--rand-x', (Math.random() * 2 - 1).toFixed(2));
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1900);
+    }
+
+    // LIGHTBOX
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox-modal').classList.remove('hidden');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    // RATING & COMMENTS SYSTEM (WITH LOCALSTORAGE PARA AS 4 FOTOS)
+    const initialData = {
+      p1: {
+        ratings: [5, 5, 5, 5, 5, 5, 5, 4, 5, 5],
+        reactions: { fire: 158, heart: 112, ring: 79, game: 61 },
+        comments: [
+          { name: "Larissa @lari.costa", text: "Estilo impecável! Essa pose tá muito malandrinho fofo 🔥", time: "Há 1h" },
+          { name: "Giovanna S.", text: "Nerd com essa postura? Casava na hora!", time: "Há 3h" },
+          { name: "Fernanda Lima", text: "Nota 10/10 com louvor! Me chama no WhatsApp!", time: "Há 5h" }
+        ]
+      },
+      p2: {
+        ratings: [5, 5, 5, 5, 5, 5, 5, 5, 5, 4],
+        reactions: { fire: 205, heart: 148, ring: 104, game: 132 },
+        comments: [
+          { name: "Juliana @ju_dev", text: "Esse sorriso de braços abertos é puro cafuné e proteção 🥺❤️", time: "Há 2h" },
+          { name: "Carolzinha Gamer", text: "O óculos combinou demais com os cachos! Muito fofo 😍", time: "Há 4h" },
+          { name: "Mariana Silva", text: "Energia boa demais nessa foto! 100/10", time: "Ontem" }
+        ]
+      },
+      p3: {
+        ratings: [5, 5, 5, 5, 5, 5, 4, 5, 5, 5],
+        reactions: { fire: 184, heart: 137, ring: 95, game: 119 },
+        comments: [
+          { name: "Renata @renata_f", text: "Artilheiro dentro e fora de campo! Essa montagem ficou sensacional ⚽🔥", time: "Há 1h" },
+          { name: "Gabi Souza", text: "Achei super estiloso o óculos esportivo! Muito craque", time: "Há 3h" },
+          { name: "Thais @thais.m", text: "10/10! Quero ser a torcedora oficial do Cabeto D'Mansueta!", time: "Há 6h" }
+        ]
+      },
+      p4: {
+        ratings: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+        reactions: { fire: 245, heart: 198, ring: 142, game: 167 },
+        comments: [
+          { name: "Ana Clara @aninha.c", text: "A MELHOR FOTO DE TODAS! Que sorriso lindo, me apaixonei de verdade 🥺💖🤟", time: "Há 30 min" },
+          { name: "Jéssica L.", text: "Essa linguinha e o sinal de rock ganharam meu coração! Muito fofo!", time: "Há 2h" },
+          { name: "Lorena @lore_gamer", text: "Setup gamer tecnológico e vibe contagiante! Casava amanhã!", time: "Há 4h" }
+        ]
+      }
+    };
+
+    function loadAppData() {
+      const stored = localStorage.getItem('cabeto_fofo_data_v2');
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {}
+      }
+      return initialData;
+    }
+
+    function saveAppData(data) {
+      localStorage.setItem('cabeto_fofo_data_v2', JSON.stringify(data));
+    }
+
+    let appData = loadAppData();
+
+    function updatePhotoUI(pId) {
+      const key = `p${pId}`;
+      const photo = appData[key];
+      if (!photo) return;
+
+      const sum = photo.ratings.reduce((a, b) => a + b, 0);
+      const avg = (sum / photo.ratings.length).toFixed(1);
+      document.getElementById(`${key}-avg-rating`).textContent = avg;
+      document.getElementById(`${key}-rating-count`).textContent = photo.ratings.length;
+
+      document.getElementById(`${key}-react-fire`).textContent = photo.reactions.fire;
+      document.getElementById(`${key}-react-heart`).textContent = photo.reactions.heart;
+      document.getElementById(`${key}-react-ring`).textContent = photo.reactions.ring;
+      document.getElementById(`${key}-react-game`).textContent = photo.reactions.game;
+
+      document.getElementById(`${key}-comment-count`).textContent = photo.comments.length;
+      const listEl = document.getElementById(`${key}-comments-list`);
+      listEl.innerHTML = '';
+      photo.comments.forEach(c => {
+        const item = document.createElement('div');
+        item.className = 'p-3 rounded-2xl bg-[#140b18]/90 border border-pink-400/15 space-y-1 text-xs';
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-pink-300">${escapeHtml(c.name)}</span>
+            <span class="text-[10px] text-pink-300/50">${c.time || 'Agora'}</span>
+          </div>
+          <p class="text-pink-100/90">${escapeHtml(c.text)}</p>
+        `;
+        listEl.appendChild(item);
+      });
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.innerText = text;
+      return div.innerHTML;
+    }
+
+    let userVotes = { 1: null, 2: null, 3: null, 4: null };
+
+    function previewStars(photoId, stars) {
+      const container = document.getElementById(`p${photoId}-star-container`);
+      const btns = container.querySelectorAll('.star-btn');
+      btns.forEach((btn, index) => {
+        if (index < stars) {
+          btn.classList.add('text-amber-400');
+          btn.classList.remove('text-slate-600');
+        } else {
+          btn.classList.remove('text-amber-400');
+          btn.classList.add('text-slate-600');
+        }
+      });
+    }
+
+    function resetPreviewStars(photoId) {
+      const vote = userVotes[photoId];
+      if (vote) {
+        previewStars(photoId, vote);
+      } else {
+        const container = document.getElementById(`p${photoId}-star-container`);
+        const btns = container.querySelectorAll('.star-btn');
+        btns.forEach(btn => {
+          btn.classList.remove('text-amber-400');
+          btn.classList.add('text-slate-600');
+        });
+      }
+    }
+
+    function ratePhoto(photoId, stars) {
+      userVotes[photoId] = stars;
+      previewStars(photoId, stars);
+      playBeep('rating');
+
+      appData[`p${photoId}`].ratings.push(stars);
+      saveAppData(appData);
+      updatePhotoUI(photoId);
+
+      document.getElementById(`p${photoId}-your-vote`).textContent = `Você deu ${stars} estrelas! 🌟`;
+
+      confetti({
+        particleCount: 50,
+        spread: 60,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function reactToPhoto(photoId, type, e) {
+      playBeep('heart');
+      spawnHeartAt(e.clientX, e.clientY);
+      appData[`p${photoId}`].reactions[type]++;
+      saveAppData(appData);
+      updatePhotoUI(photoId);
+    }
+
+    function focusCommentInput(photoId) {
+      document.getElementById(`p${photoId}-comment-text`).focus();
+    }
+
+    function submitPhotoComment(e, photoId) {
+      e.preventDefault();
+      const nameInput = document.getElementById(`p${photoId}-comment-name`);
+      const textInput = document.getElementById(`p${photoId}-comment-text`);
+
+      const name = nameInput.value.trim();
+      const text = textInput.value.trim();
+
+      if (!name || !text) return;
+
+      playBeep('celebrate');
+      confetti({
+        particleCount: 70,
+        spread: 75,
+        origin: { y: 0.6 }
+      });
+
+      appData[`p${photoId}`].comments.unshift({
+        name: name,
+        text: text,
+        time: 'Agora mesmo'
+      });
+
+      saveAppData(appData);
+      updatePhotoUI(photoId);
+
+      textInput.value = '';
+    }
+
+    function submitPublicFeedMessage(e) {
+      e.preventDefault();
+      const name = document.getElementById('feed-name').value.trim();
+      const handle = document.getElementById('feed-handle').value.trim();
+      const interest = document.getElementById('feed-interest').value;
+      const message = document.getElementById('feed-message').value.trim();
+
+      if (!name || !message) return;
+
+      playBeep('celebrate');
+      confetti({
+        particleCount: 80,
+        spread: 80,
+        origin: { y: 0.7 }
+      });
+
+      const feed = document.getElementById('general-feed');
+      const card = document.createElement('div');
+      card.className = 'fofo-card p-5 border border-pink-400/30 space-y-3';
+      card.innerHTML = `
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-400 to-rose-400 flex items-center justify-center font-bold text-white text-sm">
+              ${escapeHtml(name.charAt(0).toUpperCase())}
+            </div>
+            <div>
+              <h4 class="font-bold text-sm text-white">${escapeHtml(name)}</h4>
+              <p class="text-[11px] text-pink-400 font-mono">${escapeHtml(handle)}</p>
+            </div>
+          </div>
+          <div class="flex text-amber-300 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <p class="text-xs text-pink-100/90 leading-relaxed italic">
+          "${escapeHtml(message)}"
+        </p>
+        <div class="flex items-center justify-between text-[11px] text-pink-300/60 border-t border-pink-400/15 pt-2">
+          <span>Interesse: ${escapeHtml(interest)}</span>
+          <span class="text-pink-400 font-bold">Novo! 💖</span>
+        </div>
+      `;
+      feed.prepend(card);
+
+      document.getElementById('feed-name').value = '';
+      document.getElementById('feed-handle').value = '';
+      document.getElementById('feed-message').value = '';
+
+      alert("Seu recado foi publicado no mural com muito carinho! 🥰");
+    }
+
+    // QUIZ LOGIC
+    let quizAnswers = { 1: null, 2: null, 3: null };
+
+    function selectQuizOption(q, opt, btn) {
+      quizAnswers[q] = opt;
+      playBeep('heart');
+      const allBtns = document.querySelectorAll(`.quiz-btn-${q}`);
+      allBtns.forEach(b => {
+        b.classList.remove('bg-pink-600', 'text-white', 'border-pink-500');
+        b.classList.add('bg-[#140b18]', 'text-pink-100');
+      });
+      btn.classList.add('bg-pink-600', 'text-white', 'border-pink-500');
+      btn.classList.remove('bg-[#140b18]', 'text-pink-100');
+    }
+
+    function calculateMatch() {
+      if (quizAnswers[1] === null || quizAnswers[2] === null || quizAnswers[3] === null) {
+        alert("Por favor, responda às 3 perguntas para calcular o resultado com precisão científica! 🧸💖");
+        return;
+      }
+
+      playBeep('celebrate');
+      confetti({
+        particleCount: 120,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
+
+      const percentages = ["99.4%", "99.8%", "100%", "99.9%"];
+      const randomPercent = percentages[Math.floor(Math.random() * percentages.length)];
+      document.getElementById('match-percent').textContent = randomPercent;
+
+      document.getElementById('quiz-result').classList.remove('hidden');
+      document.getElementById('quiz-result').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // GERADOR DE CANTADAS FOFAS
+    const cantadasFofas = [
+      "Você não é Wi-Fi, mas senti uma conexão mágica assim que vi suas fotos! 📶💖",
+      "Posso não ser programadora, mas prometo nunca dar bug no seu coração 🥺💻",
+      "Aceita ser o Player 1 da minha vida? Eu fico com o Player 2 pra sempre do seu lado! 🎮🌸",
+      "Se você fosse um commit, eu nunca daria revert na gente 🥰✨",
+      "Seu sorriso na foto 4 ilumina mais que o setup gamer no escuro! Fiquei encantada 🍓💡",
+      "Não sou CSS, mas com você eu fico sem estilo e com o coração quentinho! 💖",
+      "Você tem cara de quem faz o melhor cafuné do mundo... Posso comprovar? 🧸🥺"
+    ];
+
+    function gerarCantadaAleatoria() {
+      playBeep('heart');
+      const cantada = cantadasFofas[Math.floor(Math.random() * cantadasFofas.length)];
+      document.getElementById('gf-cantada').value = cantada;
+      confetti({ particleCount: 30, spread: 40, origin: { y: 0.7 } });
+    }
+
+    // GIRLFRIEND APPLICATION FORM LOGIC
+    let lastSubmission = null;
+
+    function submitGirlfriendForm(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('gf-name').value.trim();
+      const insta = document.getElementById('gf-insta').value.trim();
+      const phone = document.getElementById('gf-phone').value.trim();
+      const dateType = document.getElementById('gf-date-type').value;
+      const player2 = document.querySelector('input[name="player2"]:checked')?.value || "Sim";
+      const cantada = document.getElementById('gf-cantada').value.trim();
+
+      lastSubmission = { name, insta, phone, dateType, player2, cantada };
+
+      playBeep('celebrate');
+      confetti({
+        particleCount: 160,
+        spread: 100,
+        origin: { y: 0.5 }
+      });
+
+      document.getElementById('success-desc').innerHTML = `
+        <strong>${escapeHtml(name)}</strong>, sua inscrição foi registrada com distinção de honra! 🧸<br><br>
+        O Cabeto foi avisado que seu date ideal é <em>"${escapeHtml(dateType)}"</em> e amou sua mensagem:<br>
+        <span class="text-pink-300 font-semibold italic">"${escapeHtml(cantada)}"</span>.
+      `;
+
+      document.getElementById('success-modal').classList.remove('hidden');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('success-modal').classList.add('hidden');
+    }
+
+    function sendViaWhatsapp() {
+      if (!lastSubmission) return;
+      const { name, insta, phone, dateType, player2, cantada } = lastSubmission;
+      const msg = `Oii Cabeto! 🥰 Vi seu site e vim mandar minha candidatura oficial de namorada!\n\n` +
+                  `👤 Meu nome: ${name}\n` +
+                  `📸 Instagram: ${insta}\n` +
+                  `📱 Meu WhatsApp: ${phone || 'Mesmo número daqui'}\n` +
+                  `🎮 Sobre games: ${player2}\n` +
+                  `🍕 Date dos sonhos: ${dateType}\n` +
+                  `💌 Minha mensagem/cantada: "${cantada}"\n\n` +
+                  `Quando a gente se vê? 😉💖`;
+      
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://api.whatsapp.com/send?phone=${CABETO_WHATSAPP}&text=${encodedMsg}`, '_blank');
+    }
+
+    // Initialize UI on load for all 4 photos
+    updatePhotoUI(1);
+    updatePhotoUI(2);
+    updatePhotoUI(3);
+    updatePhotoUI(4);
+  </script>
+</body>
+</html>
